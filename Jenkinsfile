@@ -3,7 +3,6 @@ pipeline {
         registry = "testvikrams1/numeric-app" 
         registryCredential = 'testvikrams1' 
         dockerImage = '' 
-6
     }
   agent any
 
