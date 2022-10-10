@@ -3,6 +3,12 @@ pipeline {
         registry = "testvikrams1/numeric-app" 
         registryCredential = 'dockerhub_id' 
         dockerImage = '' 
+        deploymentName = "devsecops"
+        containerName = "devsecops-container"
+        serviceName = "devsecops-svc"
+        imageName = "siddharth67/numeric-app:${GIT_COMMIT}"
+        applicationURL = "http://devsecops-demo.eastus.cloudapp.azure.com/"
+        applicationURI = "/increment/99"
     }
   agent any
 
