@@ -101,7 +101,8 @@ pipeline {
       }
     }
     }
-    stage('Integration Tests - DEV') {
+    
+ stage('Integration Tests - DEV') {
       steps {
         script {
           try {
@@ -117,8 +118,10 @@ pipeline {
         }
       }
     }
-    }
-   post {
+
+  }
+
+  post {
     always {
       junit 'target/surefire-reports/*.xml'
       jacoco execPattern: 'target/jacoco.exec'
@@ -134,5 +137,5 @@ pipeline {
 
     // }
   }
-  
- }
+
+}
