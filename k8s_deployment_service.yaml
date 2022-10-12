@@ -21,6 +21,7 @@ spec:
         securityContext:
           runAsNonRoot: true
           runAsUser: 111
+          readOnlyRootFilesystem: true
           
 ---
 apiVersion: v1
