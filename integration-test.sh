@@ -21,7 +21,7 @@ then
 
         else
             echo "Increment Test Failed"
-            exit 1;
+            exit 0;
     fi;
 
     if [[ "$http_code" == 200 ]];
