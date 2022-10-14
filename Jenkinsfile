@@ -7,7 +7,7 @@ pipeline {
         containerName = "devsecops-container"
         serviceName = "devsecops-svc"
         imageName = "testvikrams1/numeric-app:${GIT_COMMIT}"
-        applicationURL = "http://devsecops-demo.eastus.cloudapp.azure.com/"
+        applicationURL = "http://devsecops-demov.eastus.cloudapp.azure.com/"
         applicationURI = "/increment/99"
     }
   agent any
@@ -118,6 +118,16 @@ pipeline {
       }
     }
 
+ stage('OWASP ZAP - DAST') {
+      steps {
+        withKubeConfig([credentialsId: 'kubeconfig']) {
+          sh 'bash zap.sh'
+        }
+      }
+    }
+
+  }
+
   }
 
   post {
@@ -126,6 +136,7 @@ pipeline {
       jacoco execPattern: 'target/jacoco.exec'
       pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
       dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
+      publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'owasp-zap-report', reportFiles: 'zap_report.html', reportName: 'OWASP_ZAP report', reportTitles: 'OWASP_ZAP'])
     }
 
     // success {
