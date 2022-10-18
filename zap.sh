@@ -7,6 +7,8 @@ chmod 777 $(pwd)
 echo $(id -u):$(id -g)
 docker run -v /tmp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-api-scan.py -t $applicationURL:$PORT/v3/api-docs -f openapi -r zap_report.html
 
+#docker run -v /tmp:/zap/wrk/:rw -t owasp/zap2docker-weekly zap-api-scan.py -t http://devsecops-demov.eastus.cloudapp.azure.com:31411/v3/api-docs -f openapi -r zap_report.html
+
 exit_code=$?
 
 # comment above cmd and uncomment below lines to run with CUSTOM RULES
