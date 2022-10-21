@@ -1,5 +1,7 @@
 @Library('slack') _
+
 pipeline {
+  agent any
  environment { 
         registry = "testvikrams1/numeric-app" 
         registryCredential = 'dockerhub_id' 
