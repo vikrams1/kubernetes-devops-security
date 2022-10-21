@@ -16,7 +16,7 @@ exit_code=$?
 
 # HTML Report
  sudo mkdir -p /tmp/owasp-zap-report
- sudo mv /tmp/zap_report.html /tmp/owasp-zap-report
+ sudo cp /tmp/zap_report.html /tmp/owasp-zap-report
 
 
 echo "Exit Code : $exit_code"
