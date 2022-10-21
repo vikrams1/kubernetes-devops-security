@@ -13,7 +13,7 @@ pipeline {
         applicationURL = "http://devsecops-demov.eastus.cloudapp.azure.com/"
         applicationURI = "/increment/99"
     }
-  agent any
+
 
   stages {
     stage('Build Artifact - Maven') {
