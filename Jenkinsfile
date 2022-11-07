@@ -60,8 +60,7 @@ pipeline {
     }
 
 
- 
-  
+
   stages {
 
     stage('Testing Slack - 1') {
