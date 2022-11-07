@@ -199,7 +199,9 @@ stage('K8S CIS Benchmark') {
       pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
       dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
      // publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'owasp-zap-report', reportFiles: 'zap_report.html', reportName: 'OWASP', reportTitles: 'OWASP'])
-           // Use sendNotifications.groovy from shared library and provide current build result as parameter    
+           // Use sendNotifications.groovy from shared library and provide current build result as parameter
+    env.failedStage = "none"
+    env.emoji = ":white_check_mark: :tada: :thumbsup_all:"    
       sendNotification currentBuild.result
     }
 
